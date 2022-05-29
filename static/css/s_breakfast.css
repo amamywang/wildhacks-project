@@ -1,0 +1,94 @@
+body {
+    background-image: url("../images/mainbackground.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height:100vh;
+}
+
+.topnav {
+    padding: 1%;
+    border: 3px solid white;
+    margin-bottom: 1%;
+    margin: 1%;
+}
+
+#nav-header {
+    padding-left: 8%;
+    color: white;
+    font-size: 25px;
+}
+
+#nav-header:hover {
+    color: #8EC35F;
+}
+
+#nu-header {
+    padding-left: 2%;
+    color: white;
+    padding-right: 45%;
+    font-size: 30px;
+}
+
+img {
+    margin: 50px;
+}
+
+#parent {
+    position: absolute;
+    margin-left: 27%;
+    margin-top: 0%;
+    z-index: 1;
+}
+
+#child {
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 10%;
+    z-index: 2;
+}
+
+#web-head {
+    padding: 0%;
+    padding-bottom: 0px;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-family: 'Times New Roman';
+}
+
+#bttn {
+    padding: 1% 4%;
+    border-radius: 20px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: transparent;
+    color: white;
+    transition-duration: 0.2s;
+    border: 5px solid white;
+    margin-left: 70%;
+    margin-top: 25%;
+}
+
+#bttn:hover {
+    background-color: white;
+    color: #8EC35F;
+}
+
+.whole-bttn {
+    padding: 2%;
+}
+
+.home-text {
+    font-size: 80px;
+    margin-left: -100px;
+}
+
+#home-body {
+    text-align: center;
+    font-size: 80px;
+    margin-top: 150px;
+    color: white;
+    position: relative;
+}

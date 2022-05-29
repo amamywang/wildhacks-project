@@ -9,7 +9,10 @@ from datetime import datetime
 
 locations = {
     "Allison": "5b33ae291178e909d807593d",
-    "Sargent": "5b33ae291178e909d807593e"
+    "Sargent": "5b33ae291178e909d807593e",
+    "Plex West": "5bae7de3f3eeb60c7d3854ba",
+    "Plex East": "5bae7ee9f3eeb60cb4f8f3af",
+    "Elder": "5d113c924198d409c34fdf5c"
 }
 
 periods = {
@@ -78,7 +81,8 @@ def populate_meal_period(data: dict, meal_period: str):
         category = category_info["name"]
         food_items = []
         for food in category_info["items"]:
-            food_items.append(food["name"])
+            #food_items.append(food["name"])
+            food_items.append({"name": food["name"], "leftover": "no"})
 
         # Combine similar categories (ex: Comfort 1 and Comfort 2) together
         if re.search(r' \d$', category):
@@ -95,6 +99,33 @@ def populate_meal_period(data: dict, meal_period: str):
 
 ### starting menu loads all the possible food items
 ### starting_menu: { meal_period: [{category_1: foods}, {category_2: foods}] }
+
+def generate_starting_menu(dining_hall):
+    data = fetchAPI(dining_hall, "Breakfast")
+
+    for period in data["periods"]:
+        if period["name"] == "Breakfast":
+            pass
+        else:
+            periods[period["name"]] = period["id"]
+
+    starting_menu = populate_meal_period(data, "Breakfast")
+    
+    #print("Breakfast: ", starting_menu["Breakfast"], "\n")
+
+    data = fetchAPI(dining_hall, "Lunch")
+    starting_menu = populate_meal_period(data, "Lunch")
+    #print("Lunch: ", starting_menu["Lunch"], "\n")
+
+    data = fetchAPI(dining_hall, "Dinner")
+    starting_menu = populate_meal_period(data, "Dinner")
+    #print("Dinner: ", starting_menu["Dinner"])
+
+    starting_menu["dining_hall"] = dining_hall
+    starting_menu["date"] = datetime.now().strftime("%Y-%m-%d")
+
+    return starting_menu
+
 
 if __name__ == '__main__':
     data = fetchAPI("Allison", "Breakfast")
@@ -116,6 +147,8 @@ if __name__ == '__main__':
     data = fetchAPI("Allison", "Dinner")
     starting_menu = populate_meal_period(data, "Dinner")
     print("Dinner: ", starting_menu["Dinner"])
+
+
 
 #with urllib.request.urlopen(f"https://api.dineoncampus.com/v1/location/{locations['Allison']}/periods{periods['Breakfast']}platform=0&date=2022-5-28") as url:
 
