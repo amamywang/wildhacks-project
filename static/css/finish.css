@@ -7,29 +7,42 @@ body {
     height:100vh;
 }
 
+/* nav bar*/
 .topnav {
     padding: 1%;
-    border: 3px solid white;
-    margin-bottom: 4%;
-    margin: 1%;
-}
-
-#nav-header {
-    padding-left: 8%;
-    color: white;
-    font-size: 25px;
-}
-
-#nav-header:hover {
+    border: 5px solid white;
+    /* border-radius makes the nav bar rounded */
+    border-radius: 15px;
+    background-color: white;
+    margin: 3%;
+  }
+  
+  /* nav bar "MUNCHIES" */
+  #nu-header { 
     color: #8EC35F;
-}
-
-#nu-header {
-    padding-left: 2%;
-    color: white;
-    padding-right: 45%;
-    font-size: 30px;
-}
+    font-size: 33px;
+    font-weight: bold;
+    font-family: "PT Sans", Calibri, Tahoma, sans-serif;
+    float: inline-start;
+    margin-right: 50%;
+    margin-left: 2%;
+  }
+  
+  .navheaderbox {
+    float: snap-block(20px, start);
+  } 
+  
+  /* nav bar Meals */
+  #nav-header {
+    color: rgb(66, 66, 66);
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 5%;
+  }
+  
+  #nav-header:hover {
+    color: #8EC35F;
+  }
 
 img {
     margin: 50px;

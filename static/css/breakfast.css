@@ -34,17 +34,20 @@ body {
   font-weight: bold;
   font-family: "PT Sans", Calibri, Tahoma, sans-serif;
   float: inline-start;
+  margin-right: 50%;
+  margin-left: 2%;
 }
 
 .navheaderbox {
   float: snap-block(20px, start);
-}
+} 
 
 /* nav bar Meals */
 #nav-header {
   color: rgb(66, 66, 66);
   font-size: 25px;
   font-weight: bold;
+  margin-left: 5%;
 }
 
 #nav-header:hover {
