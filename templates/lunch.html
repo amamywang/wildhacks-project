@@ -19,85 +19,44 @@
     </header>
 
     <main>
+          <form method="post">
+
+         <div class="row">
        <!-- <div class="container">  -->
-         <div class="row"> 
-          <div class="column">
-            <h2>Comfort</h2>
+            {% for cat in foods %}
+               <div class="column">
+                 {% for key in cat %}
+                   <h2>{{key}}</h2>
+                 {% endfor %}
+              {% for all_items in cat.values() %}
+                {% for item in all_items %}
+            <div class="checkbox">
+          {% if item["leftover"] == "no" %}
+              <input type="checkbox" name="food" id="leftover" value="{{item['name']}}">
+          {% else %}
+              <input type="checkbox" name="food" id="leftover" value="{{item['name']}}" checked>
+        {% endif %}
+              <div class="box">
+                <i class="Pasta"></i>
+                <p data-text="">{{item["name"]}}</p>
+              </div>
+            </div>
+              {% endfor %}
+            {% endfor %}
+              </div>
+          {% endfor %}
 
-            <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <div class="box">
-                <i class="Pasta"></i>
-                <p data-text="Pasta">Pasta</p>
-              </div>
-            </div>
-            
-            <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <div class="box">
-                <i class="Pasta"></i>
-                <p data-text="Pasta">Pasta</p>
-              </div>
-            </div>
 
           </div>
 
-          <div class="column">
-            <h2>Rooted</h2>
-            <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <div class="box">
-                <i class="Pasta"></i>
-                <p data-text="Pasta">Pasta</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="column">
-            <h2>idk</h2>
-            <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <div class="box">
-                <i class="Pasta"></i>
-                <p data-text="Pasta">Pasta</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="column">
-            <h2>Flame</h2>
-            <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <div class="box">
-                <i class="Pasta"></i>
-                <p data-text="Pasta">Pasta</p>
-              </div>
-            </div>
-
-            <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <div class="box">
-                <i class="Pasta"></i>
-                <p data-text="Pasta">Pasta</p>
-              </div>
-            </div>
-
-            <div class="checkbox">
-              <input type="checkbox" name="" id="">
-              <div class="box">
-                <i class="Pasta"></i>
-                <p data-text="Pasta">Pasta</p>
-              </div>
-            </div>
-          </div>
-
-         </div> 
-         
-         <div class="row"> 
-           <a href="finish.html"><button id="bttn">Submit</button></a>
          </div>
+         <br />
+         <div class="row">
+           <a href="finish.html"><button id="bttn" type="submit">Submit</button></a>
+         </div>
+
      <!--- </div>  -->
-        
+        </form>
     </main>
 
 </body>

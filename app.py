@@ -65,14 +65,11 @@ def breakfast():
         no_to_yes = []
         for food in request.form.getlist('food'):
             if food in is_leftover:
-                pass
-                # update_mongo(food)
-
-    ### REPLACE ###
-
-    #foods = menu["Breakfast"]
-    
-    ### REPLACE ###
+                yes_to_no.append(food)
+            else:
+                no_to_yes.append(food)
+            update_mongo(yes_to_no, no_to_yes)
+        return render_template("finish.html")
 
     return render_template("breakfast.html",
                            foods=foods)
@@ -86,17 +83,25 @@ def lunch():
         no_to_yes = []
         for food in request.form.getlist('food'):
             if food in is_leftover:
-                pass
-                # update_mongo(food)
+                yes_to_no.append(food)
+            else:
+                no_to_yes.append(food)
+            update_mongo(yes_to_no, no_to_yes)
+        return render_template("finish.html")
 
     ### REPLACE ###
     # menu = api.populate_meal_period(data, "Lunch")
     # foods = menu["Lunch"][0]
-    
     ### REPLACE ###
 
+    firstfoods = foods[:5]
+    secondfoods = foods[:10]
+    thirdfoods = foods[:15]
+
     return render_template("lunch.html",
-                           foods=foods)
+                           firstfoods=firstfoods,
+                           secondfoods=secondfoods,
+                           thirdfoods=thirdfoods)
 
 @app.route('/dinner.html', methods = ['GET', 'POST'])
 def dinner():
@@ -107,8 +112,11 @@ def dinner():
         no_to_yes = []
         for food in request.form.getlist('food'):
             if food in is_leftover:
-                pass
-                # update_mongo(food)
+                yes_to_no.append(food)
+            else:
+                no_to_yes.append(food)
+            update_mongo(yes_to_no, no_to_yes)
+        return render_template("finish.html")
 
     ### REPLACE ###
     # menu = api.populate_meal_period(data, "Dinner")
@@ -174,4 +182,4 @@ def update_mongo():
 #     )
 
 if __name__ == '__main__':
-    app.run()
+    app.run(threaded=True)
