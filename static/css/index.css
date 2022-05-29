@@ -4,67 +4,70 @@
 }
 
 body {
-    background-image: url("../images/background.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height:100vh;
+  /* sets background image, makes size adjustable */
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+  background-size: cover; 
+  width: 100%;
+  height:100vh;
+  /* prevents horizontal scrolling */
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* nav bar*/
 .topnav {
-    padding: 1%;
-    border: 5px solid white;
-    /* border-radius makes the nav bar rounded */
-    border-radius: 15px;
-    background-color: white;
-    margin: 3%;
-  }
-  
-  /* nav bar "MUNCHIES" */
-  #nu-header { 
-    color: #8EC35F;
-    font-size: 33px;
-    font-weight: bold;
-    font-family: "PT Sans", Calibri, Tahoma, sans-serif;
-    float: inline-start;
-    margin-right: 50%;
-    margin-left: 2%;
-  }
-  
-  .navheaderbox {
-    float: snap-block(20px, start);
-  } 
-  
-  /* nav bar Meals */
-  #nav-header {
-    color: rgb(66, 66, 66);
-    font-size: 25px;
-    font-weight: bold;
-    margin-left: 5%;
-  }
-  
-  #nav-header:hover {
-    color: #8EC35F;
-  }
-
-img {
-    margin: 50px;
+  padding: 1%;
+  border: 5px solid white;
+  /* border-radius makes the nav bar rounded */
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 1.0);
+  margin: 3%;
 }
 
-#parent {
-    position: absolute;
-    margin-left: 27%;
-    margin-top: 0%;
-    z-index: 1;
+/* nav bar "MUNCHIES" */
+#nu-header { 
+  color: #8EC35F;
+  font-size: 33px;
+  font-weight: bold;
+  font-family: "PT Sans", Calibri, Tahoma, sans-serif;
+  float: inline-start;
+  margin-right: 60%; 
+  margin-left: 2%;
 }
 
-#child {
-    position: absolute;
-    margin-left: 40%;
-    margin-top: 10%;
-    z-index: 2;
+/* nav bar Meals */
+#nav-header {
+  color: rgb(66, 66, 66);
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 2%;
+}
+
+#nav-header:hover {
+  color: #8EC35F;
+}
+
+
+.parent {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    text-align: center;
+    
+}
+
+.i1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  max-width: 50%;
+  max-height: 50%;
 }
 
 #web-head {
@@ -80,7 +83,6 @@ img {
     padding: 1% 4%;
     border-radius: 20px;
     font-size: 25px;
-    font-family: 'Times New Roman', Times, serif;
     background-color: transparent;
     color: white;
     transition-duration: 0.2s;
@@ -98,7 +100,7 @@ img {
 
 #home-body {
     text-align: center;
-    margin-top: 33%;
+    margin-top: 0%;
     color: white;
 }
 
