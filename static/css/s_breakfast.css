@@ -93,3 +93,13 @@ body {
     color: white;
     position: relative;
 }
+
+main {
+  padding: 0%;
+  padding-bottom: 0px;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(43, 43, 43);
+  font-size: 30px;
+  letter-spacing: 1.5px;
+}
