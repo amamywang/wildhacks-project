@@ -1,0 +1,90 @@
+body {
+    background-image: url("mainbackground.png");
+    background-size: 1450px 1000px;
+}
+
+.topnav {
+    padding: 15px;
+    border: 3px solid white;
+    margin-bottom: 50px;
+    margin: 20px;
+}
+
+#nav-header {
+    padding-left: 100px;
+    color: white;
+    font-size: 25px;
+}
+
+#nav-header:hover {
+    color: #8EC35F;
+}
+
+#nu-header {
+    padding-left: 10px;
+    color: white;
+    padding-right: 620px;
+    font-size: 30px;
+}
+
+img {
+    margin: 50px;
+}
+
+#parent {
+    position: absolute;
+    margin-left: 385px;
+    margin-top: 0px;
+    z-index: 1;
+}
+
+#child {
+    position: absolute;
+    margin-left: 570px;
+    margin-top: 135px;
+    z-index: 2;
+}
+
+#web-head {
+    padding: 80px;
+    padding-bottom: 0px;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-family: 'Times New Roman';
+}
+
+#bttn {
+    padding: 16px 50px;
+    border-radius: 20px;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: transparent;
+    color: white;
+    transition-duration: 0.2s;
+    border: 5px solid white;
+    margin-left: 130px;
+}
+
+#bttn:hover {
+    background-color: white;
+    color: #8EC35F;
+}
+
+.whole-bttn {
+    padding: 20px;
+}
+
+.home-text {
+    font-size: 80px;
+    margin-left: -100px;
+}
+
+#home-body {
+    text-align: center;
+    font-size: 80px;
+    margin-top: 150px;
+    color: white;
+    position: relative;
+}
+
