@@ -1,21 +1,30 @@
-* {
-    background-color: #8EC35F;
+body {
+    background-image: url("background.png");
+    background-size: 1450px 1000px;
 }
 
 .topnav {
-    padding: 25px;
+    padding: 15px;
+    border: 3px solid white;
+    margin-bottom: 50px;
+    margin: 20px;
 }
 
-#breakfast-header {
-    padding-left: 1000px;;
+#nav-header {
+    padding-left: 100px;
+    color: white;
+    font-size: 25px;
 }
 
-#lunch-header {
-    padding-left: 40px;
+#nav-header:hover {
+    color: #8EC35F;
 }
 
-#dinner-header {
-    padding-left: 40px;
+#nu-header {
+    padding-left: 10px;
+    color: white;
+    padding-right: 620px;
+    font-size: 30px;
 }
 
 img {
@@ -24,14 +33,14 @@ img {
 
 #parent {
     position: absolute;
-    margin-left: 400px;
+    margin-left: 385px;
     margin-top: 0px;
     z-index: 1;
 }
 
 #child {
     position: absolute;
-    margin-left: 585px;
+    margin-left: 570px;
     margin-top: 135px;
     z-index: 2;
 }
@@ -50,6 +59,7 @@ img {
     border-radius: 20px;
     font-size: 25px;
     font-family: 'Times New Roman', Times, serif;
+    background-color: transparent;
     color: white;
     transition-duration: 0.2s;
     border: 2px solid white;
@@ -66,7 +76,7 @@ img {
 
 #home-body {
     text-align: center;
-    margin-top: 450px;
+    margin-top: 480px;
     color: white;
 }
 
