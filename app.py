@@ -165,9 +165,67 @@ def s_home():
 def s_lunch():
     return render_template("s_lunch.html")
 
-def update_mongo():
-    # call to mongo
-    pass
+def update_mongo(dining_hall, yes_to_no, no_to_yes):
+    category_index = 0
+    food_index = 0
+    food_meal = ""
+    new_leftover = no_to_yes
+    new_not_leftover = yes_to_no
+    found = False
+    category_name = ""
+
+    # changing the entries for no_to_yes
+    for food_entry in new_leftover:
+        for meal in ["Breakfast", "Lunch", "Dinner"]:
+            category_index = 0
+            for category in dining_hall[meal]: # iterate through Comfort, Rooted, etc
+                category_name = list(category.keys())[0]
+                food_index = 0
+                for food_dict in list(category.values())[0]:
+                    if food_dict["name"] == food_entry:
+                        found = True
+                        food_meal = meal
+                    if not found:
+                        food_index += 1
+                if found:
+                    found = False
+                    break
+                category_index += 1
+        
+        address = food_meal + "." + str(category_index) + "." + category_name + "." + str(food_index) + "." + "leftover"
+
+        mdb.collection.update_one(
+            { "dining_hall": dining_hall,"date": mdb.date}, # filter
+            {"$set": { address: "yes"}})
+        
+        print(address + " updated (" + food_entry + ")")
+
+    # changing the entries for yes_to_no
+    for food_entry in new_not_leftover:
+        for meal in ["Breakfast", "Lunch", "Dinner"]:
+            category_index = 0
+            for category in dining_hall[meal]: # iterate through Comfort, Rooted, etc
+                category_name = list(category.keys())[0]
+                food_index = 0
+                for food_dict in list(category.values())[0]:
+                    if food_dict["name"] == food_entry:
+                        found = True
+                        food_meal = meal
+                    if not found:
+                        food_index += 1
+                if found:
+                    found = False
+                    break
+                category_index += 1
+        
+        address = food_meal + "." + str(category_index) + "." + category_name + "." + str(food_index) + "." + "leftover"
+
+        mdb.collection.update_one(
+            { "dining_hall": dining_hall,"date": mdb.date}, # filter
+            {"$set": { address: "no"}})
+        
+        print(address + " updated (" + food_entry + ")")
+
 
 
 # ##############
