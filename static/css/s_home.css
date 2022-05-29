@@ -73,14 +73,13 @@ img {
     text-align: center;
     color: black;
     font-size: 100px;
-    font-family: sans-serif;
 }
 
 #bttn {
     padding: 1% 4%;
     border-radius: 20px;
     font-size: 25px;
-    font-family: 'Times New Roman', Times, serif;
+    font-weight: heavy;
     background-color: transparent;
     color: white;
     transition-duration: 0.2s;
