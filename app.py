@@ -34,7 +34,7 @@ def index():
     return render_template("index.html")
 
 @app.route('/finish.html')
-def index():
+def finish():
     return render_template("finish.html")
 
 
