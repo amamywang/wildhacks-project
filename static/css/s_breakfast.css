@@ -1,101 +1,89 @@
+*{
+  font-family: "PT Sans", Calibri, Tahoma, sans-serif;
+  margin-left: 1%;
+}
+
 body {
-    background-image: url("../images/mainbackground.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height:100vh;
+  /* sets background image, makes size adjustable */
+  background-image: url("../images/mainbackground.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+  background-size: cover; 
+  width: 100%;
+  height:100vh;
+  /* prevents horizontal scrolling */
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* nav bar*/
 .topnav {
-    padding: 1%;
-    border: 5px solid white;
-    /* border-radius makes the nav bar rounded */
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 1.0);
-    margin: 3%;
-  }
-  
-  /* nav bar "MUNCHIES" */
-  #nu-header { 
-    color: #8EC35F;
-    font-size: 33px;
-    font-weight: bold;
-    font-family: "PT Sans", Calibri, Tahoma, sans-serif;
-    float: inline-start;
-    margin-right: 50%;
-    margin-left: 2%;
-  }
-  
-  .navheaderbox {
-    float: snap-block(20px, start);
-  } 
-  
-  /* nav bar Meals */
-  #nav-header {
-    color: rgb(66, 66, 66);
-    font-size: 25px;
-    font-weight: bold;
-    margin-left: 5%;
-  }
-  
-  #nav-header:hover {
-    color: #8EC35F;
-  }
-
-img {
-    margin: 50px;
+  padding: 1%;
+  border: 5px solid white;
+  /* border-radius makes the nav bar rounded */
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 1.0);
+  margin: 3%;
 }
 
-#parent {
-    position: absolute;
-    margin-left: 27%;
-    margin-top: 0%;
-    z-index: 1;
+/* nav bar "MUNCHIES" */
+#nu-header { 
+  color: #8EC35F;
+  font-size: 33px;
+  font-weight: bold;
+  font-family: "PT Sans", Calibri, Tahoma, sans-serif;
+  float: inline-start;
+  margin-right: 60%; 
+  margin-left: 2%;
 }
 
-#child {
-    position: absolute;
-    margin-left: 40%;
-    margin-top: 10%;
-    z-index: 2;
+/* nav bar Meals */
+#nav-header {
+  color: rgb(66, 66, 66);
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 2%;
 }
+
+#nav-header:hover {
+  color: #8EC35F;
+}
+
 
 #web-head {
-    padding: 0%;
-    padding-bottom: 0px;
-    text-align: center;
-    color: white;
-    font-size: 50px;
-    font-family: 'Times New Roman';
+  padding: 0%;
+  padding-bottom: 0px;
+  text-align: center;
+  color: rgb(43, 43, 43);
+  font-size: 50px;
+  letter-spacing: 1.5px;
 }
 
 #bttn {
-    padding: 1% 4%;
-    border-radius: 20px;
-    font-size: 30px;
-    font-family: 'Times New Roman';
-    background-color: transparent;
-    color: white;
-    transition-duration: 0.2s;
-    border: 5px solid white;
-    margin-left: 70%;
-    margin-top: 25%;
+  padding: 1% 4%;
+  border-radius: 20px;
+  font-size: 30px;
+  background-color: transparent;
+  color: white;
+  transition-duration: 0.2s;
+  border: 5px solid white;
+  margin-left: 70%;
+  margin-top: 25%;
 }
 
 #bttn:hover {
-    background-color: white;
-    color: #8EC35F;
+  background-color: white;
+  color: #8EC35F;
 }
 
 .whole-bttn {
-    padding: 2%;
+  padding: 2%;
 }
 
 .home-text {
-    font-size: 80px;
-    margin-left: -100px;
+  font-size: 80px;
+  margin-left: -100px;
 }
 
 #home-body {
