@@ -16,59 +16,48 @@ body {
   overflow-x: hidden;
 }
 
-header {
-  font-size: 5px;
-}
 
+/* nav bar*/
 .topnav {
   padding: 1%;
   border: 5px solid white;
-  margin-bottom: 4%;
-  margin: 1%;
+  /* border-radius makes the nav bar rounded */
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 1.0);
+  margin: 3%;
 }
 
+/* nav bar "MUNCHIES" */
+#nu-header { 
+  color: #8EC35F;
+  font-size: 33px;
+  font-weight: bold;
+  font-family: "PT Sans", Calibri, Tahoma, sans-serif;
+  float: inline-start;
+}
+
+.navheaderbox {
+  float: snap-block(20px, start);
+}
+
+/* nav bar Meals */
 #nav-header {
-  padding-left: 2%;
-  color: white;
+  color: rgb(66, 66, 66);
   font-size: 25px;
+  font-weight: bold;
 }
 
 #nav-header:hover {
   color: #8EC35F;
 }
 
-#nu-header {
-  padding-left: 2%;
-  color: white;
-  padding-right: 45%;
-  font-size: 30px;
-}
-
-img {
-  margin: 50px;
-}
-
-#parent {
-  position: absolute;
-  margin-left: 27%;
-  margin-top: 0%;
-  z-index: 1;
-}
-
-#child {
-  position: absolute;
-  margin-left: 40%;
-  margin-top: 10%;
-  z-index: 2;
-}
-
-#web-head {
+/* Select leftovers */
+#select-instruct {
   padding: 20px;
   padding-bottom: 0px;
   text-align: center;
-  color: black;
-  font-size: 50px;
-  font-family: sans-serif;
+  color: white;
+  font-size: 40px;
 }
 
 #bttn {
