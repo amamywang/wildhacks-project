@@ -1,3 +1,7 @@
+*{
+  font-family: "PT Sans", Calibri, Tahoma, sans-serif;
+}
+
 body {
   background-image: url("../images/mainbackground.png");
     background-repeat: no-repeat;
@@ -35,7 +39,7 @@ body {
   padding: 16px 50px;
   border-radius: 20px;
   font-size: 25px;
-  font-family: 'Times New Roman', Times, serif;
+  /*font-family: 'Times New Roman', Times, serif;*/
   background-color: transparent;
   color: white;
   transition-duration: 0.2s;
@@ -61,6 +65,7 @@ body {
   text-align: center;
 }
 
+/*
 #bttn {
   padding: 16px 50px;
   border-radius: 20px;
@@ -69,11 +74,22 @@ body {
   color: black;
   border: 2px solid solid white;
 }
+*/
+
+
+
+
 
 /* if screen is too narrow, stack all columns on top of eahc other */
 @media screen and (max-width: 600px) {
+
   .column {
     width: 100%;
+  }
+
+  .row{  
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -89,10 +105,10 @@ body {
   
 
   .checkbox{  
-    width: 140px;  
-    height: 40px;  
-    position: relative;  
-    margin: 0.5em 0;  
+    width: 200px;
+    height: 70px;
+    position: relative;
+    margin: 1.0em 0; 
   }  
 
   .checkbox input{  
@@ -110,8 +126,8 @@ body {
     height: 100%;  
     position: absolute;  
     z-index: 1;  
-    background: #8ce595;    
-    border: 2px solid #d1d1d1;  
+    background: #f7f7f7;    
+    border: 2px solid #f7f7f7;  
     color: rgb(63, 63, 63);  
     border-radius: 5px;  
     display: flex;  
@@ -127,21 +143,29 @@ body {
   .box p{  
     transition: all 0.2s;  
   }  
+
+  /*
   .checkbox input:checked ~ .box p{  
-    transform: translateY(-30px);  
+    transform: translateY(-30px);
   }  
+   */  
+
   .box p::before{  
     content: attr(data-text);  
     position: absolute;  
-    transform: translateY(30px);  
+   /* transform: translateY(30px);  */
   }  
+
+/*
   .checkbox input:checked ~ .box p::before{  
-    transform: translateY(30px);  
+     transform: translateY(30px); 
   }  
+*/
+
   .checkbox input:checked ~ .box {  
-    background: #f7f7f7;  
-    border: 2px solid #185ADB;  
-    color: #185ADB;  
+    background: #8ce595; 
+    border: 2px solid #009d37;  
+    color: #009d37;  
   }  
   
     
