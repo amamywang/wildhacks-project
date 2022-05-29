@@ -1,5 +1,5 @@
 body {
-    background-image: url("mainbackground.png");
+    background-image: url("../images/mainbackground.png");
     background-size: 1450px 1000px;
 }
 
@@ -49,9 +49,9 @@ img {
     padding: 80px;
     padding-bottom: 0px;
     text-align: center;
-    color: black;
-    font-size: 100px;
-    font-family: sans-serif;
+    color: white;
+    font-size: 50px;
+    font-family: 'Times New Roman';
 }
 
 #bttn {

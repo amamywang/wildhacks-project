@@ -1,6 +1,6 @@
 body {
-    background-image: url("background.png");
-    background-size: 1450px 1000px;
+    background-image: url("../images/mainbackground.png");
+    background-size: 1450px 900px;
 }
 
 .topnav {
@@ -27,33 +27,6 @@ body {
     font-size: 30px;
 }
 
-img {
-    margin: 50px;
-}
-
-#parent {
-    position: absolute;
-    margin-left: 385px;
-    margin-top: 0px;
-    z-index: 1;
-}
-
-#child {
-    position: absolute;
-    margin-left: 570px;
-    margin-top: 135px;
-    z-index: 2;
-}
-
-#web-head {
-    padding: 80px;
-    padding-bottom: 0px;
-    text-align: center;
-    color: black;
-    font-size: 100px;
-    font-family: sans-serif;
-}
-
 #bttn {
     padding: 16px 50px;
     border-radius: 20px;
@@ -74,9 +47,23 @@ img {
     padding: 20px;
 }
 
-#home-body {
+#web-head {
+    padding: 80px;
     text-align: center;
-    margin-top: 480px;
-    color: white;
 }
+
+#food-decoration {
+    padding: 80px;
+    text-align: center;
+}
+
+#bttn {
+    padding: 16px 50px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    border: 2px solid solid white;
+}
+
 
