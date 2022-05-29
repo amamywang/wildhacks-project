@@ -183,66 +183,60 @@ def s_lunch():
     return render_template("s_lunch.html")
 
 def update_mongo(dining_hall, yes_to_no, no_to_yes):
+
+    # changing the entries for no_to_yes
+    addresses_to_yes = find_addresses(no_to_yes)
+
+    for address in addresses_to_yes:
+        mdb.collection.update_one(
+            { "dining_hall": dining_hall,"date": mdb.date}, # filter
+            {"$set": { address[0]: "yes"}})
+        
+        print(address[0] + " updated to yes (" + address[1] + ")")
+    
+    # changing the entries for yes_to_no
+    addresses_to_no = find_addresses(yes_to_no)
+
+    for address in addresses_to_no:
+        mdb.collection.update_one(
+            { "dining_hall": dining_hall,"date": mdb.date}, # filter
+            {"$set": { address[0]: "no"}})
+        
+        print(address[0] + " updated to no (" + address[1] + ")")
+
+def find_addresses(food_item_list):
     category_index = 0
     food_index = 0
     food_meal = ""
-    new_leftover = no_to_yes
-    new_not_leftover = yes_to_no
-    found = False
     category_name = ""
-
-    # changing the entries for no_to_yes
-    for food_entry in new_leftover:
+    addresses = []
+    item_addresses = []
+    
+    print(food_item_list)
+    for changed_food in food_item_list:
+        item_addresses = []
         for meal in ["Breakfast", "Lunch", "Dinner"]:
             category_index = 0
+            print(meal + " menu")
+            print(foods_dict[meal])
+            print("\n")
             for category in foods_dict[meal]: # iterate through Comfort, Rooted, etc
-                category_name = list(category.keys())[0]
                 food_index = 0
-                for food_item_dict in list(category.values())[0]:
-                    if food_item_dict["name"] == food_entry:
-                        found = True
-                        food_meal = meal
-                    if not found:
-                        food_index += 1
-                if found:
-                    found = False
-                    break
-                category_index += 1
-        
-        address = food_meal + "." + str(category_index) + "." + category_name + "." + str(food_index) + "." + "leftover"
-
-        mdb.collection.update_one(
-            { "dining_hall": dining_hall,"date": mdb.date}, # filter
-            {"$set": { address: "yes"}})
-        
-        print(address + " updated (" + food_entry + ")")
-
-    # changing the entries for yes_to_no
-    for food_entry in new_not_leftover:
-        for meal in ["Breakfast", "Lunch", "Dinner"]:
-            category_index = 0
-            for category in foods_dict[meal]: # iterate through Comfort, Rooted, etc
                 category_name = list(category.keys())[0]
-                food_index = 0
-                for food_item_dict in list(category.values())[0]:
-                    if food_item_dict["name"] == food_entry:
-                        found = True
+
+                for food_item_dict in (list(category.values()))[0]:
+                    if food_item_dict["name"] == changed_food:
+                        
                         food_meal = meal
-                    if not found:
-                        food_index += 1
-                if found:
-                    found = False
-                    break
+                        address = food_meal + "." + str(category_index) + "." + category_name + "." + str(food_index) + "." + "leftover"
+                        item_addresses.append(address)
+                    food_index += 1
                 category_index += 1
-        
-        address = food_meal + "." + str(category_index) + "." + category_name + "." + str(food_index) + "." + "leftover"
 
-        mdb.collection.update_one(
-            { "dining_hall": dining_hall,"date": mdb.date}, # filter
-            {"$set": { address: "no"}})
-        
-        print(address + " updated (" + food_entry + ")")
+        for address in item_addresses:
+            addresses.append([address, changed_food])
 
+    return addresses
 
 
 # ##############
