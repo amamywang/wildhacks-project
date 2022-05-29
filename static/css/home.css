@@ -62,7 +62,11 @@ img {
     z-index: 2;
 }
 
-#dropdown {
+#dropdown1 {
+    font-size: 30px;
+}
+
+#dropdown2 {
     font-size: 30px;
     margin-bottom: 6%;
 }
