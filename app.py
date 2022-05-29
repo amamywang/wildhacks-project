@@ -2,7 +2,8 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import url_for
-import backend.apiscraper as api
+import apiscraper as api
+import mongodb as mdb
 
 # initializes flask app:
 app = Flask(__name__)
@@ -18,6 +19,35 @@ for period in data["periods"]:
 
 menu = api.populate_meal_period(data, "Breakfast")
 
+### CHANGE
+dining_hall = "Allison"
+
+# returns a cursor object that must be iterated to obtain a dict
+foods_all_meals = mdb.collection.find({'$and':[{'dining_hall': dining_hall}, {'date': mdb.date}]})
+
+for food_items in foods_all_meals:
+    foods_dict = food_items
+
+def get_leftover(foods_at_meal):
+    '''
+    Function to obtain the names of foods where 
+    dining_hall[meal_period][category_index][category_name][food_index]["leftover"]
+    is "yes"
+
+    foods_at_meals is the dict foods_dict[meal_period]
+    '''
+    leftover_foods = []
+
+    # iterate through each category and the food items in each category
+    for category in foods_at_meal:
+        for food_dict in list(category.values())[0]:
+                if food_dict["leftover"] == "yes":
+                    leftover_foods.append(food_dict["name"])
+
+    return leftover_foods
+    
+
+
 ##############
 # Exercise 1 #
 ##############
@@ -28,7 +58,8 @@ def main_page():
 
 @app.route('/breakfast.html', methods = ['GET', 'POST'])
 def breakfast():
-    is_leftover = []
+    foods = foods_dict["Breakfast"]
+    is_leftover = get_leftover(foods)
     if request.method == 'POST':
         yes_to_no = []
         no_to_yes = []
@@ -38,7 +69,9 @@ def breakfast():
                 # update_mongo(food)
 
     ### REPLACE ###
-    foods = menu["Breakfast"]
+
+    #foods = menu["Breakfast"]
+    
     ### REPLACE ###
 
     return render_template("breakfast.html",
@@ -46,7 +79,8 @@ def breakfast():
 
 @app.route('/lunch.html', methods = ['GET', 'POST'])
 def lunch():
-    is_leftover = []
+    foods = foods_dict["Lunch"]
+    is_leftover = get_leftover(foods)
     if request.method == 'POST':
         yes_to_no = []
         no_to_yes = []
@@ -56,8 +90,9 @@ def lunch():
                 # update_mongo(food)
 
     ### REPLACE ###
-    menu = api.populate_meal_period(data, "Lunch")
-    foods = menu["Lunch"][0]
+    # menu = api.populate_meal_period(data, "Lunch")
+    # foods = menu["Lunch"][0]
+    
     ### REPLACE ###
 
     return render_template("lunch.html",
@@ -65,7 +100,8 @@ def lunch():
 
 @app.route('/dinner.html', methods = ['GET', 'POST'])
 def dinner():
-    is_leftover = []
+    foods = foods_dict["Dinner"]
+    is_leftover = get_leftover(foods)
     if request.method == 'POST':
         yes_to_no = []
         no_to_yes = []
@@ -75,8 +111,9 @@ def dinner():
                 # update_mongo(food)
 
     ### REPLACE ###
-    menu = api.populate_meal_period(data, "Dinner")
-    foods = menu["Dinner"][0]
+    # menu = api.populate_meal_period(data, "Dinner")
+    # foods = menu["Dinner"][0]
+    
     ### REPLACE ###
 
     return render_template("dinner.html",
@@ -89,6 +126,22 @@ def index():
 @app.route('/finish.html')
 def finish():
     return render_template("finish.html")
+
+@app.route('/s_breakfast.html')
+def s_breakfast():
+    return render_template("s_breakfast.html")
+
+@app.route('/s_dinner.html')
+def s_dinner():
+    return render_template("s_dinner.html")
+
+@app.route('/s_home.html')
+def s_home():
+    return render_template("s_home.html")
+
+@app.route('/s_lunch.html')
+def s_lunch():
+    return render_template("s_lunch.html")
 
 def update_mongo():
     # call to mongo
