@@ -16,12 +16,26 @@
 
     <main>
         <article id="home-body">
-            <p>Pick a meal to edit:</p>
-                <div class="home-text">
-                    <a href="breakfast.html"><button id="bttn">Breakfast</button></a>
-                    <a href="lunch.html"><button id="bttn">Lunch</button></a>
-                    <a href="dinner.html"><button id="bttn">Dinner</button></a>
-                </div>
+            <label for="dininghalls">Pick a dining hall:</label>
+            <select name="dining" id="dropdown">
+                <option value="Allison">Allison</option>
+                <option value="Elder">Elder</option>
+                <option value="PlexEast">Plex East</option>
+                <option value="PlexWest">Plex West</option>
+                <option value="Sargent">Sargent</option>
+            </select>
+            <br/>
+
+            <label for="meals">Pick a meal:</label>
+            <select name="meal" id="dropdown">
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+            </select>
+            <div class="row"> 
+                <!-- NEED TO FIX IN FLASK -->
+                <a href="breakfast.html"><button id="bttn">Submit</button></a> 
+            </div>
         </article>
     </main>
 

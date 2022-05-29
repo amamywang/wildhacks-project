@@ -62,6 +62,11 @@ img {
     z-index: 2;
 }
 
+#dropdown {
+    font-size: 30px;
+    margin-bottom: 6%;
+}
+
 #web-head {
     padding: 80px;
     padding-bottom: 0px;
