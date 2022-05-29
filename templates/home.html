@@ -3,6 +3,14 @@
 <head>
     <link rel="stylesheet" href="../static/css/home.css">
     <title>WildHacks2022</title>
+
+    <script type="text/javascript">
+        function goToNewPage()
+        {
+            var data = document.getElementById('dropdown2').value;
+            window.location = data;
+        }
+    </script>
 </head>
 
 <body>
@@ -16,26 +24,30 @@
 
     <main>
         <article id="home-body">
+            <form>
             <label for="dininghalls">Pick a dining hall:</label>
-            <select name="dining" id="dropdown">
+            <select name="dining" id="dropdown1">
                 <option value="Allison">Allison</option>
                 <option value="Elder">Elder</option>
                 <option value="PlexEast">Plex East</option>
                 <option value="PlexWest">Plex West</option>
                 <option value="Sargent">Sargent</option>
             </select>
+            </form>
             <br/>
 
+            <form>
             <label for="meals">Pick a meal:</label>
-            <select name="meal" id="dropdown">
-                <option value="Breakfast">Breakfast</option>
-                <option value="Lunch">Lunch</option>
-                <option value="Dinner">Dinner</option>
+            <select name="meal" id="dropdown2">
+                <option value="breakfast.html">Breakfast</option>
+                <option value="lunch.html">Lunch</option>
+                <option value="dinner.html">Dinner</option>
             </select>
             <div class="row"> 
                 <!-- NEED TO FIX IN FLASK -->
                 <a href="breakfast.html"><button id="bttn">Submit</button></a> 
             </div>
+            </form>
         </article>
     </main>
 

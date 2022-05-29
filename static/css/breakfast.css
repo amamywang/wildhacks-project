@@ -35,20 +35,16 @@ body {
   font-weight: bold;
   font-family: "PT Sans", Calibri, Tahoma, sans-serif;
   float: inline-start;
-  margin-right: 50%;
+  margin-right: 60%; 
   margin-left: 2%;
 }
-
-.navheaderbox {
-  float: snap-block(20px, start);
-} 
 
 /* nav bar Meals */
 #nav-header {
   color: rgb(66, 66, 66);
   font-size: 25px;
   font-weight: bold;
-  margin-left: 5%;
+  margin-left: 2%;
 }
 
 #nav-header:hover {
@@ -60,8 +56,9 @@ body {
   padding: 20px;
   padding-bottom: 0px;
   text-align: center;
-  color: white;
+  color: rgb(43, 43, 43);
   font-size: 40px;
+  letter-spacing: 1.5px;
 }
 
 #bttn {
@@ -102,7 +99,24 @@ body {
   .row{  
     flex-direction: column;
   }
+
+  /* nav bar "MUNCHIES" */
+#nu-header { 
+  color: #8EC35F;
+  font-size: 33px;
+  font-weight: bold;
+  font-family: "PT Sans", Calibri, Tahoma, sans-serif;
+  float: inline-start;
+  margin-right: 110%;
+  margin-left: 2%;
 }
+
+}
+
+
+
+
+
 
 
   .row{  
