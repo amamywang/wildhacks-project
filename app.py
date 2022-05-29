@@ -71,8 +71,15 @@ def breakfast():
             update_mongo(yes_to_no, no_to_yes)
         return render_template("finish.html")
 
+    length = len(foods)
+    firstfoods = foods[:round(length/3)]
+    secondfoods = foods[round(length/3):round(2 * length/3)]
+    thirdfoods = foods[round(2 * length/3):round(length/3)]
+
     return render_template("breakfast.html",
-                           foods=foods)
+                           firstfoods=firstfoods,
+                           secondfoods=secondfoods,
+                           thirdfoods=thirdfoods)
 
 @app.route('/lunch.html', methods = ['GET', 'POST'])
 def lunch():
@@ -93,10 +100,10 @@ def lunch():
     # menu = api.populate_meal_period(data, "Lunch")
     # foods = menu["Lunch"][0]
     ### REPLACE ###
-
-    firstfoods = foods[:5]
-    secondfoods = foods[:10]
-    thirdfoods = foods[:15]
+    length = len(foods)
+    firstfoods = foods[:round(length/3)]
+    secondfoods = foods[round(length/3):round(2 * length/3)]
+    thirdfoods = foods[round(2 * length/3):round(length/3)]
 
     return render_template("lunch.html",
                            firstfoods=firstfoods,
@@ -124,8 +131,15 @@ def dinner():
     
     ### REPLACE ###
 
+    length = len(foods)
+    firstfoods = foods[:round(length/3)]
+    secondfoods = foods[round(length/3):round(2 * length/3)]
+    thirdfoods = foods[round(2 * length/3):round(length/3)]
+
     return render_template("dinner.html",
-                           foods=foods)
+                           firstfoods=firstfoods,
+                           secondfoods=secondfoods,
+                           thirdfoods=thirdfoods)
 
 @app.route('/index.html')
 def index():

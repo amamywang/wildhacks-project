@@ -22,8 +22,8 @@
           <form method="post">
 
          <div class="row">
+             {% for cat in firstfoods %}
        <!-- <div class="container">  -->
-            {% for cat in foods %}
                <div class="column">
                  {% for key in cat %}
                    <h2>{{key}}</h2>
@@ -45,11 +45,59 @@
             {% endfor %}
               </div>
           {% endfor %}
+        </div>
 
+              <div class="row">
+             {% for cat in secondfoods %}
+       <!-- <div class="container">  -->
+               <div class="column">
+                 {% for key in cat %}
+                   <h2>{{key}}</h2>
+                 {% endfor %}
+              {% for all_items in cat.values() %}
+                {% for item in all_items %}
+            <div class="checkbox">
+          {% if item["leftover"] == "no" %}
+              <input type="checkbox" name="food" id="leftover" value="{{item['name']}}">
+          {% else %}
+              <input type="checkbox" name="food" id="leftover" value="{{item['name']}}" checked>
+        {% endif %}
+              <div class="box">
+                <i class="Pasta"></i>
+                <p data-text="">{{item["name"]}}</p>
+              </div>
+            </div>
+              {% endfor %}
+            {% endfor %}
+              </div>
+          {% endfor %}
+        </div>
 
-          </div>
-
-         </div>
+              <div class="row">
+             {% for cat in thirdfoods %}
+       <!-- <div class="container">  -->
+               <div class="column">
+                 {% for key in cat %}
+                   <h2>{{key}}</h2>
+                 {% endfor %}
+              {% for all_items in cat.values() %}
+                {% for item in all_items %}
+            <div class="checkbox">
+          {% if item["leftover"] == "no" %}
+              <input type="checkbox" name="food" id="leftover" value="{{item['name']}}">
+          {% else %}
+              <input type="checkbox" name="food" id="leftover" value="{{item['name']}}" checked>
+        {% endif %}
+              <div class="box">
+                <i class="Pasta"></i>
+                <p data-text="">{{item["name"]}}</p>
+              </div>
+            </div>
+              {% endfor %}
+            {% endfor %}
+              </div>
+          {% endfor %}
+        </div>
          <br />
          <div class="row">
            <a href="finish.html"><button id="bttn" type="submit">Submit</button></a>
